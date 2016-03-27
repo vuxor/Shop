@@ -11,17 +11,23 @@ import {
 import PhonesAddModal from 'components/Modals/AddPhoneModal.react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
+import phonesActions from 'actions/phones';
 
 /* actions */
 import * as actionCreators from 'actions/phones';
 
-// @connect(
-//   state => state.phones,
-//   dispatch => bindActionCreators(actionCreators, dispatch)
-// )
+@connect(
+  state => state.phones,
+  dispatch => bindActionCreators(actionCreators, dispatch)
+)
 export default class PhonesTable extends Component {
   constructor(props) {
     super(props);
+  }
+
+  componentWillMount() {
+    phonesActions.getAllPhones();
+    
   }
 
   render() {

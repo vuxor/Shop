@@ -11,7 +11,7 @@ export function phones(state = initialState, action) {
       ...state,
       phones: [
         ...state.phones, {
-          text: action.fields.name.value,
+          phone: action.phone,
         },
       ],
     };
